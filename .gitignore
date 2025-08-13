@@ -1,0 +1,20 @@
+# Swift Package / Xcode
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+
+# SwiftPM Plugin Artifacts
+.swiftpm
+
+# Swift Package Index DocC
+/.docc-build
+
+# Model Weights (not stored here; user supplies separately)
+**/Models/**
+**/weights/**
+**/*.bin
+manifest.json
+vocab.json
+tokenizer.*
