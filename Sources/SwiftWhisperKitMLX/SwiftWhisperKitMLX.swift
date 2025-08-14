@@ -9,3 +9,10 @@
 // alongside the concrete implementation.
 
 @_exported import Foundation
+
+// Backwards compatibility typealiases (deprecated) for earlier placeholder names.
+@available(*, deprecated, renamed: "MLXWhisperTranscriber", message: "Use MLXWhisperTranscriber instead of the old placeholder name")
+public typealias WhisperTranscriber = MLXWhisperTranscriber
+
+@available(*, deprecated, renamed: "WhisperLoadOptions", message: "Use WhisperLoadOptions instead of WhisperOptions")
+public typealias WhisperOptions = WhisperLoadOptions
