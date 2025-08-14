@@ -43,3 +43,10 @@ public enum WhisperLoader {
     private static func loadTensor(file:URL, shape:[Int]) throws -> Tensor { let data = try Data(contentsOf: file); let count = data.count / MemoryLayout<Float>.size; let expected = shape.reduce(1,*); guard count == expected else { throw WhisperModelError.shapeMismatch(file.lastPathComponent) }; let arr:[Float] = data.withUnsafeBytes { Array($0.bindMemory(to: Float.self)) }; return Tensor(shape: shape, scalars: arr) }
 }
 #endif
+
+#if !canImport(MLX)
+// Fallback stubs so the package can build when MLX dependencies are not present.
+// These provide only the minimal surface required by other files (e.g. optional properties).
+public final class WhisperWeights: @unchecked Sendable {}
+public enum WhisperLoader {}
+#endif
